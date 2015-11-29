@@ -1,5 +1,17 @@
 Meteor Starter
-==============
+==============================================================================
+
+This is a fork and an update of the very cool Yogiben and CaptainN meteor-starter packages. 
+Couldn't figure out how to update everything to 1.2.1
+The trick was to create a new empty meteor project, clone CaptainN's latest admin git https://github.com/CaptainN/meteor-admin into a packages directory in the root of your app.
+
+Then clone https://github.com/yogiben/meteor-starter into it's own directory.
+Then copy the contents of that dir into your app root.
+
+Run meteor and voila!
+
+But to make it easier I'll just fork them and stand this up. Have fun!
+==============================================================================
 
 A Meteor boilerplate with a lot packed in. Written in Coffeescript.
 
