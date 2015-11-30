@@ -1,5 +1,7 @@
 Meteor Starter
 ==============================================================================
+As of 11/30/2015 9:50 EST this is a working Meteor 1.2.1 packages with all dependent packages at the highest release level. I haven't yet tested all the functionality but I'm hoping others will.
+------------------------------------------------------------------------------
 
 This is a fork and an update of the very cool Yogiben and CaptainN meteor-starter packages. 
 Couldn't figure out how to update everything to 1.2.1
