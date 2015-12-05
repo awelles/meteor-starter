@@ -1,6 +1,6 @@
 @Comments = new Meteor.Collection 'comments'
 
-CommentsSchema = new SimpleSchema
+Schemas.Comments = new SimpleSchema
 	doc:
 		type:String
 		regEx: SimpleSchema.RegEx.Id
@@ -25,4 +25,4 @@ CommentsSchema = new SimpleSchema
 		label: 'Comment'
 
 
-Comments.attachSchema(CommentsSchema)
+Comments.attachSchema(Schemas.Comments)
