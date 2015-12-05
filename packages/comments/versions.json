@@ -78,7 +78,7 @@
     ],
     [
       "less",
-      "1.0.11"
+      "2.5.0"
     ],
     [
       "livedata",
@@ -149,8 +149,8 @@
       "0.0.1"
     ],
     [
-      "yogiben:user-helpers",
-      "0.0.8"
+      "user-helpers",
+      "0.0.7"
     ]
   ],
   "pluginDependencies": [],
