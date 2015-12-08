@@ -1,6 +1,10 @@
 Meteor Starter
 ==============================================================================
+<<<<<<< HEAD
 As of 12/8/2015, this is a fully functional demo with image upload capabilities. 
+=======
+As of 12/05/2015 2:26pm EST this is a working Meteor 1.2.1 packages with all dependent packages at the highest release level. This is the 2nd version of this release, ignore the previous ones.
+>>>>>>> 9347dfecda047a843d605825440d899240a2d23d
 ------------------------------------------------------------------------------
 
 If you are getting an EOF error in Windows, you MUST install GraphicsMagic. gm.exe MUST execute from the CMD line...

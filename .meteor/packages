@@ -14,6 +14,10 @@ fortawesome:fontawesome
 raix:handlebar-helpers
 cfs:standard-packages
 cfs:gridfs
+<<<<<<< HEAD
+=======
+cfs:graphicsmagick
+>>>>>>> 9347dfecda047a843d605825440d899240a2d23d
 yogiben:helpers
 yogiben:autoform-modals
 yogiben:pretty-email
@@ -42,8 +46,14 @@ fastclick
 timmyg:wow
 tsega:skrollr
 utilities:avatar
+<<<<<<< HEAD
 less
 yogiben:admin@1.2.3
+=======
+useraccounts:iron-routing
+less
+yogiben:admin
+>>>>>>> 9347dfecda047a843d605825440d899240a2d23d
 autoupdate
 mobile-status-bar
 standard-minifiers
@@ -55,10 +65,16 @@ mobile-experience
 meteor-base
 blaze-html-templates
 twbs:bootstrap
+<<<<<<< HEAD
+=======
+blaze
+yogiben:autoform-file
+>>>>>>> 9347dfecda047a843d605825440d899240a2d23d
 comments
 user-helpers
 check
 aldeed:template-extension
+<<<<<<< HEAD
 favorites
 http
 aldeed:http
@@ -72,3 +88,5 @@ useraccounts:iron-routing
 notifications
 yogiben:autoform-file
 matb33:bootstrap-thumbnails
+=======
+>>>>>>> 9347dfecda047a843d605825440d899240a2d23d
