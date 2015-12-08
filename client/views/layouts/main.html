@@ -1,0 +1,41 @@
+<template name="mainLayout">
+
+    <!-- Wrapper-->
+    <div id="wrapper">
+
+	      {{#if User}}
+          <!-- Navigation -->
+          {{> navigation }}
+
+          <!-- Page wraper -->
+          <div id="page-wrapper" class="gray-bg">
+
+              <!-- Page wrapper -->
+              {{> topNavbar }}
+
+              <!-- Main view  -->
+              {{> yield}}
+
+              <!-- Footer -->
+              {{> footer }}
+
+          </div>
+          <!-- End page wrapper-->
+
+          <!-- Right Sidebar -->
+          {{> rightSidebar }}
+        {{else}}
+
+          <!-- Page wraper -->
+          <div id="page-wrapper" class="gray-bg" style="margin:5px">
+              <!-- Main view  -->
+              {{> yield}}
+
+          </div>
+          <!-- End page wrapper-->
+	      {{/if}}
+
+    </div>
+    <!-- End wrapper-->
+
+</template>

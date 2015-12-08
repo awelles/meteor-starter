@@ -12,7 +12,7 @@ Package.onUse(function(api) {
   api.use(
   	[
   		'coffeescript',
-  		'less',
+  		'less@2.5.0',
       'templating',
 
 	    'aldeed:autoform@4.0.2 || 5.1.2'

@@ -1,8 +1,11 @@
 Meteor Starter
 ==============================================================================
-As of 11/30/2015 9:50 EST this is a working Meteor 1.2.1 packages with all dependent packages at the highest release level. I haven't yet tested all the functionality but I'm hoping others will.
+As of 12/8/2015, this is a fully functional demo with image upload capabilities. 
 ------------------------------------------------------------------------------
 
+If you are getting an EOF error in Windows, you MUST install GraphicsMagic. gm.exe MUST execute from the CMD line...
+
+------------------------------------------------------------------------------
 This is a fork and an update of the very cool Yogiben and CaptainN meteor-starter packages. 
 Couldn't figure out how to update everything to 1.2.1
 The trick was to create a new empty meteor project, clone CaptainN's latest admin git https://github.com/CaptainN/meteor-admin into a packages directory in the root of your app.

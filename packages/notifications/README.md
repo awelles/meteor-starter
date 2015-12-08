@@ -3,23 +3,26 @@ Meteor Notifications
 
 Easy notification functionality in meteor.
 
-`meteor add notifications`
+    meteor add yogiben:notifications
 
 [See a demo](http://yogiben-favorites.meteor.com/dashboard)
 
+### Screenshots ###
+
+![img](readme/screenshot.png)
+
 ### Usage ###
 
-1) Install the package
+1. Install the package
 
-2) Put `notificationsDropdown` template in your navigation bar
+2. Put `notificationsDropdown` template in your navigation bar
 
-`{{> notificationsDropdown}}`
+        {{> notificationsDropdown}}
 
-3) Create new notification
+3. Create new notification
 
-```
-Notifications.new { title: 'New message', link: '/messages/1' }
-```
+        Notifications.new({ title: 'New message', link: '/messages/1' });
+
 
 ### Helpers ###
 
@@ -33,7 +36,7 @@ Above parameters are optional and defaulted to ``0`` and ``false`` respectively.
 
 #### Notification count ####
 
-``{{notificationCount}}``
+    {{notificationCount}}
 
 This will return unread user notifications.
 
@@ -41,11 +44,11 @@ This will return unread user notifications.
 
 #### Notifications dropdown ####
 
-``{{> notificationsDropdown icon='bell' iconEmpty='bell-o'}}``
+    {{> notificationsDropdown icon='bell' iconEmpty='bell-o'}}
 
 This template can be used with bootstrap dropdown like this:
 
-```
+```html
 <nav class="navbar navbar-default">
   <div class="collapse navbar-collapse">
     <ul class="nav navbar-nav navbar-right">
@@ -61,7 +64,7 @@ Above parameters are optional and defaulted to ``'bell'`` and ``'bell-o'`` respe
 
 #### Notification listing ####
 
-``{{> notifications}}``
+    {{> notifications}}
 
 This is simple bootstrap panel with listing of all user notifications.
 
@@ -69,7 +72,7 @@ This is simple bootstrap panel with listing of all user notifications.
 
 #### Creating new notification ####
 
-```
+```js
 Notifications.new
   title: 'New message'
   link: '/messages/1'
@@ -77,11 +80,11 @@ Notifications.new
   class: 'default'
 ```
 
-This method inserts new notification into ``Notifications`` collection. 
+This method inserts new notification into ``Notifications`` collection.
 
-``title`` and ``link`` are used to create link to notification. 
+``title`` and ``link`` are used to create link to notification.
 
-``icon`` is font-awesome icon class name displayed with in notification link. 
+``icon`` is font-awesome icon class name displayed with in notification link.
 
 ``class`` is bootstrap 3 ``bg-`` class and can be one of ``primary success info danger`` (note: you don't need to specify prefix).
 
@@ -95,11 +98,11 @@ This method inserts new notification into ``Notifications`` collection.
 
 You can set all notifications as read with:
 
-``Notifications.readAll()``
+    Notifications.readAll()
 
 or set only one by id:
 
-``Notifications.read _id``
+    Notifications.read _id
 
 ### Customising ###
 
@@ -109,7 +112,7 @@ You can created your own buttons and replace the default templates. To do this, 
 
 2) Create new button templates based on this markup
 
-```
+```html
 <template name="myNotificationsDropdown">
   <div class="btn-group">
     <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -117,7 +120,7 @@ You can created your own buttons and replace the default templates. To do this, 
     </button>
     <ul class="dropdown-menu" role="menu">
       {{#each Notifications limit=5 readFirst=true}}
-        <li><a href="{{link}}" class="bg-{{class}}"><i class="fa fa-{{icon}}">{{title}}</a></li>
+        <li><a href="{{link}}" class="bg-{{class}}"><i class="fa fa-{{icon}}"></i>{{title}}</a></li>
       {{/each}}
     </ul>
   </div>
@@ -136,8 +139,8 @@ You can created your own buttons and replace the default templates. To do this, 
 
 3) Replace the existing button templates with the `replace` method provided by the package
 
-```
+```js
 Template.myNotificationsDropdown.replaces("notificationsDropdown")
 
-Template.myNotfications.replaces("notifications")
+Template.myNotifications.replaces("notifications")
 ```

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="MomsKitchen" id="Project_36745014" html="y" template="Default" database="MongoDb" >
+	<schema name="admin" catalogname="admin" />
+	<schema name="local" catalogname="local" >
+		<table name="me" >
+			<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" autoincrement="y" />
+			<column name="host" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+		<table name="oplog.rs" />
+		<table name="startup_log" >
+			<column name="_id" type="string" length="800" decimal="0" jt="12" mandatory="y" autoincrement="y" />
+			<column name="hostname" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="startTime" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="startTimeLocal" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="cmdLine" type="document" length="800" decimal="0" jt="2000" mandatory="y" />
+			<column name="pid" type="long" length="800" decimal="0" jt="-1" mandatory="y" />
+			<column name="buildinfo" type="document" length="800" decimal="0" jt="2000" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+		<table name="startup_log.buildinfo" >
+			<column name="version" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="gitVersion" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="targetMinOS" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="OpenSSLVersion" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="sysInfo" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="loaderFlags" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="compilerFlags" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="allocator" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="versionArray" type="arraylist" length="800" decimal="0" jt="2000" mandatory="y" />
+			<column name="javascriptEngine" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="bits" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="debug" type="boolean" length="800" decimal="0" jt="2000" mandatory="y" />
+			<column name="maxBsonObjectSize" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<fk name="JSon" to_schema="local" to_table="startup_log" >
+				<fk_column pk="buildinfo" />
+			</fk>
+		</table>
+		<table name="startup_log.cmdLine" >
+			<column name="net" type="document" length="800" decimal="0" jt="2000" mandatory="y" />
+			<column name="replication" type="document" length="800" decimal="0" jt="2000" mandatory="y" />
+			<column name="storage" type="document" length="800" decimal="0" jt="2000" mandatory="y" />
+			<fk name="JSon" to_schema="local" to_table="startup_log" >
+				<fk_column pk="cmdLine" />
+			</fk>
+		</table>
+		<table name="startup_log.cmdLine.net" >
+			<column name="bindIp" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="port" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<fk name="JSon" to_schema="local" to_table="startup_log.cmdLine" >
+				<fk_column pk="net" />
+			</fk>
+		</table>
+		<table name="startup_log.cmdLine.replication" >
+			<column name="oplogSizeMB" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="replSet" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<fk name="JSon" to_schema="local" to_table="startup_log.cmdLine" >
+				<fk_column pk="replication" />
+			</fk>
+		</table>
+		<table name="startup_log.cmdLine.storage" >
+			<column name="dbPath" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="smallFiles" type="boolean" length="800" decimal="0" jt="2000" mandatory="y" />
+			<fk name="JSon" to_schema="local" to_table="startup_log.cmdLine" >
+				<fk_column pk="storage" />
+			</fk>
+		</table>
+		<table name="system.replset" />
+	</schema>
+	<schema name="meteor" catalogname="meteor" >
+		<table name="cfs.Attachments.filerecord" />
+		<table name="cfs._tempstore.chunks" />
+		<table name="cfs.profilePictures.filerecord" />
+		<table name="cfs_gridfs._tempstore.chunks" />
+		<table name="cfs_gridfs._tempstore.files" />
+		<table name="cfs_gridfs.attachments.chunks" />
+		<table name="cfs_gridfs.attachments.files" />
+		<table name="cfs_gridfs.images.chunks" />
+		<table name="cfs_gridfs.images.files" />
+		<table name="cfs_gridfs.thumbs.chunks" />
+		<table name="cfs_gridfs.thumbs.files" />
+		<table name="meteor_accounts_loginServiceConfiguration" />
+		<table name="meteor_oauth_pendingCredentials" />
+		<table name="meteor_oauth_pendingRequestTokens" />
+		<table name="roles" />
+		<table name="users" >
+			<column name="_id" type="string" length="800" decimal="0" jt="12" mandatory="y" autoincrement="y" />
+			<column name="createdAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="services" type="document" length="800" decimal="0" jt="2000" mandatory="y" />
+			<column name="emails" type="arraylist" length="800" decimal="0" jt="2000" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+		<table name="users.emails" >
+			<column name="address" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="verified" type="boolean" length="800" decimal="0" jt="2000" mandatory="y" />
+			<fk name="JSon" to_schema="meteor" to_table="users" >
+				<fk_column pk="emails" />
+			</fk>
+		</table>
+		<table name="users.services" >
+			<column name="password" type="document" length="800" decimal="0" jt="2000" mandatory="y" />
+			<column name="resume" type="document" length="800" decimal="0" jt="2000" mandatory="y" />
+			<fk name="JSon" to_schema="meteor" to_table="users" >
+				<fk_column pk="services" />
+			</fk>
+		</table>
+		<table name="users.services.password" >
+			<column name="bcrypt" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<fk name="JSon" to_schema="meteor" to_table="users.services" >
+				<fk_column pk="password" />
+			</fk>
+		</table>
+		<table name="users.services.resume" >
+			<column name="loginTokens" type="arraylist" length="800" decimal="0" jt="2000" mandatory="y" />
+			<fk name="JSon" to_schema="meteor" to_table="users.services" >
+				<fk_column pk="resume" />
+			</fk>
+		</table>
+		<table name="users.services.resume.loginTokens" >
+			<column name="when" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="hashedToken" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<fk name="JSon" to_schema="meteor" to_table="users.services.resume" >
+				<fk_column pk="loginTokens" />
+			</fk>
+		</table>
+	</schema>
+	<connector name="MomsKitchen" database="MongoDb" driver_class="com.nosql.NoSqlDriver" driver_jar="mongojdbc1.1.jar" driver_desc="Without Authentication" host="localhost" port="3001" instance="meteor" />
+	<layout id="Layout_280def42" name="local" show_relation_columns="y" >
+		<entity schema="local" name="me" color="bfd4f5" x="225" y="60" />
+		<entity schema="local" name="oplog.rs" color="c8f5bf" x="375" y="60" />
+		<entity schema="local" name="startup_log" color="f5ddbf" x="375" y="240" />
+		<entity schema="local" name="startup_log.buildinfo" color="f5ddbf" x="540" y="390" />
+		<entity schema="local" name="startup_log.cmdLine" color="f5ddbf" x="540" y="240" />
+		<entity schema="local" name="startup_log.cmdLine.net" color="f5ddbf" x="720" y="375" />
+		<entity schema="local" name="startup_log.cmdLine.replication" color="f5ddbf" x="720" y="375" />
+		<entity schema="local" name="startup_log.cmdLine.storage" color="f5ddbf" x="720" y="240" />
+		<entity schema="local" name="system.replset" color="bfbff5" x="45" y="240" />
+		<entity schema="meteor" name="users.services.resume.loginTokens" color="b7c8e3" x="960" y="60" />
+		<entity schema="meteor" name="meteor_accounts_loginServiceConfiguration" color="b7c8e3" x="1050" y="600" />
+		<entity schema="meteor" name="meteor_oauth_pendingCredentials" color="b7c8e3" x="1050" y="540" />
+		<entity schema="meteor" name="meteor_oauth_pendingRequestTokens" color="b7c8e3" x="1050" y="480" />
+		<entity schema="meteor" name="roles" color="b7c8e3" x="1050" y="420" />
+		<entity schema="meteor" name="users" color="b7c8e3" x="1125" y="360" />
+		<entity schema="meteor" name="users.emails" color="b7c8e3" x="960" y="210" />
+		<entity schema="meteor" name="users.services" color="b7c8e3" x="1185" y="210" />
+		<entity schema="meteor" name="users.services.password" color="b7c8e3" x="1335" y="390" />
+		<entity schema="meteor" name="users.services.resume" color="b7c8e3" x="1335" y="165" />
+		<entity schema="meteor" name="cfs_gridfs.attachments.chunks" color="b7c8e3" x="1575" y="375" />
+		<entity schema="meteor" name="cfs_gridfs.thumbs.chunks" color="b7c8e3" x="1545" y="375" />
+		<entity schema="meteor" name="cfs_gridfs.images.chunks" color="b7c8e3" x="1380" y="510" />
+		<entity schema="meteor" name="cfs_gridfs._tempstore.chunks" color="b7c8e3" x="1365" y="585" />
+		<entity schema="meteor" name="cfs_gridfs.thumbs.files" color="b7c8e3" x="1560" y="510" />
+		<entity schema="meteor" name="cfs_gridfs.images.files" color="b7c8e3" x="1560" y="600" />
+		<entity schema="meteor" name="cfs_gridfs._tempstore.files" color="b7c8e3" x="1530" y="690" />
+		<entity schema="meteor" name="cfs_gridfs.attachments.files" color="b7c8e3" x="1335" y="690" />
+		<entity schema="meteor" name="cfs.profilePictures.filerecord" color="b7c8e3" x="1110" y="705" />
+		<entity schema="meteor" name="cfs.Attachments.filerecord" color="b7c8e3" x="1320" y="315" />
+		<entity schema="meteor" name="cfs._tempstore.chunks" color="b7c8e3" x="1230" y="45" />
+		<browser id="Browse_6ab819c" name="startup_log.cmdLine" >
+			<browse_table schema="local" entity="startup_log.cmdLine" x="10" y="10" width="200" height="200" />
+		</browser>
+	</layout>
+	<layout id="Layout_1b5ad89d" name="meteor" show_relation_columns="y" >
+		<entity schema="meteor" name="meteor_accounts_loginServiceConfiguration" color="bfd4f5" x="825" y="45" />
+		<entity schema="meteor" name="meteor_oauth_pendingCredentials" color="c8f5bf" x="1140" y="45" />
+		<entity schema="meteor" name="meteor_oauth_pendingRequestTokens" color="f5ddbf" x="1140" y="195" />
+		<entity schema="meteor" name="roles" color="bfbff5" x="825" y="195" />
+		<entity schema="meteor" name="users" color="d2bff5" x="45" y="195" />
+		<entity schema="meteor" name="users.emails" color="d2bff5" x="195" y="330" />
+		<entity schema="meteor" name="users.services" color="d2bff5" x="195" y="195" />
+		<entity schema="meteor" name="users.services.password" color="d2bff5" x="345" y="315" />
+		<entity schema="meteor" name="users.services.resume" color="d2bff5" x="345" y="195" />
+		<entity schema="meteor" name="users.services.resume.loginTokens" color="d2bff5" x="540" y="195" />
+		<browser id="Browse_1491ba51" name="users.services" >
+			<browse_table schema="meteor" entity="users.services" x="10" y="10" width="200" height="200" />
+		</browser>
+	</layout>
+</project>

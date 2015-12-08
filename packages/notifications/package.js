@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Adds notification functionality",
-  version: "0.0.7",
+  version: "0.1.0",
   git: "http://github.com/yogiben/meteor-notifications.git"
 });
 
@@ -8,23 +8,22 @@ both = ['client', 'server'];
 
 Package.onUse(function(api) {
   api.versionsFrom('METEOR@1.0');
-  
+
   api.use(
       [
         'coffeescript',
         'templating',
-        'less',
+        'less@2.5.1',
         'tracker',
-        'iron:router@1.0.0',
         'mrt:moment@2.8.1',
-        'aldeed:autoform@4.0.2 || 5.1.2'
+        'aldeed:autoform@4.2.2 || 5.1.2'
       ],
       both);
 
   api.addFiles(
       [
-        'lib/both/collections.coffee',
-        'lib/both/router.coffee'
+        'lib/both/schemas.coffee',
+        'lib/both/collections.coffee'
       ],
       both);
 
