@@ -1,4 +1,5 @@
 Package.describe({
+  name: "comments",
   summary: "Adds comments to your collection(s) of choice",
   version: "0.1.0",
   git: "http://github.com/yogiben/meteor-comments.git"
@@ -12,19 +13,14 @@ Package.onUse(function(api) {
   api.use(
   	[
   		'coffeescript',
-  		'less@2.5.0',
-        'templating',
-	    'aldeed:simple-schema@1.1.0',
-	    'aldeed:collection2@2.2.0',
-	    'aldeed:autoform@5.7.0',
-        'user-helpers@0.0.7'
-
+      'less@2.5.1',
+      'templating',
+	    'aldeed:autoform@4.1.0 || 5.1.2'
   	],
   	both);
 
   api.addFiles(
   	[
-  		'lib/both/schemas.coffee',
   		'lib/both/collections.coffee'
   	],
   	both)
@@ -32,8 +28,8 @@ Package.onUse(function(api) {
    api.addFiles(
   	[
   		'lib/client/templates.html',
-      	'lib/client/templates.coffee',
-      	'lib/client/helpers.coffee',
+      'lib/client/templates.coffee',
+      'lib/client/helpers.coffee',
   		'lib/client/autoform.coffee'
   	],
   	'client')

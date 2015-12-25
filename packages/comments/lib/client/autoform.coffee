@@ -1,9 +1,6 @@
 AutoForm.hooks commentForm:
-  onSuccess: (operation, result, template) ->
-  	console.log result
-  	
   onError: (operation, error, template) ->
-  	alert error
+  	sAlert.error error
 
   formToDoc: (doc, ss, formId) ->
   	doc.doc = Template.instance().data.commentDocId

@@ -1,7 +1,7 @@
 Package.describe({
   name: "yogiben:admin",
   summary: "A complete admin dashboard solution",
-  version: "1.2.3",
+  version: "1.2.4",
   git: "https://github.com/yogiben/meteor-admin"
 });
 
@@ -14,12 +14,12 @@ Package.on_use(function(api){
   api.use(
     ['iron:router@1.0.9',
     'coffeescript',
-    'check',
     'underscore',
     'reactive-var',
+    'check',
     'aldeed:collection2@2.5.0',
     'aldeed:autoform@5.5.1',
-    'aldeed:template-extension',
+    'aldeed:template-extension@4.0.0',
     'alanning:roles@1.2.13',
     'raix:handlebar-helpers@0.2.5',
     'reywood:publish-composite@1.4.2',
